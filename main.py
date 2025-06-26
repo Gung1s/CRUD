@@ -93,3 +93,4 @@ while True:
         case "5":
             print("Išeiti iš programos")
             break
+
