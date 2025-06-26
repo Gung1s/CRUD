@@ -67,9 +67,29 @@ while True:
                 "accomendation": apt
             })
         case "3":
-            print("Koreguoti atostogas")
+            print("Koreguoti atostogas. Įveskite id numerį, kurį norite koreguoti")
+            id = input()
+            for hol in hollidays:
+                if id == str(hol["id"]):
+                    print(f"{hol["id"]}. Šalis {hol['Country']} {hol['City']} kaina {hol['Price']}eu"
+                          f" gyvenant {hol['accomendation']}")
+                    print("Įveskite šalį")
+                    hol["Country"] = input()
+                    print("Įveskite miestą")
+                    hol["City"] = input()
+                    print("Įveskie kur gyvensite")
+                    hol["accomendation"] = input()
+                    print("Kokia kaina bus")
+                    hol["Price"] = input()
+                    break
         case "4":
-            print("Šalinti atostogas")
+            print("Šalinti atostogas. Pasirinkite id kurį norite šalinti")
+            id = input()
+            for hol in hollidays:
+                if id == str(hol["id"]):
+                    print(f"{hol["id"]}. Šalis {hol['Country']} {hol['City']} kaina {hol['Price']}eu"
+                          f" gyvenant {hol['accomendation']}")
+                    del hollidays[hollidays.index(hol)]
         case "5":
             print("Išeiti iš programos")
             break
