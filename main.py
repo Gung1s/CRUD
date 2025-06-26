@@ -1,6 +1,9 @@
+from queue import PriorityQueue
+
 
 hollidays = [
     {
+        "id": 1,
         "Country": "Lithuania",
         "City": "Palanga",
         "Price":20,
@@ -8,6 +11,7 @@ hollidays = [
 
     },
     {
+        "id": 2,
         "Country": "Turkija",
         "City": "Alanija",
         "Price": 60,
@@ -15,6 +19,7 @@ hollidays = [
 
     },
     {
+        "id": 3,
         "Country": "Cyprus",
         "City": "Larnaka",
         "Price": 50,
@@ -22,8 +27,49 @@ hollidays = [
 
     }
 ]
+id_counter = 3
+while True:
+    # print(hollidays)
+    #
+    # for hol in hollidays:
+    #     print(f"Atostogos {hol['Country']} {hol['City']} kaina {hol['Price']} gyvenant {hol['accomendation']}")
+    print()
+    print("1. Atvaizduoti atostogų pasirinkimą")
+    print("2. Įtraukti atostogas į sąrašą")
+    print("3. Koreguoti atostogas")
+    print("4. Šalinti atostogas")
+    print("5. Išeiti iš programos")
+    print()
+    print("Pasirinkite")
+    choise = input()
 
-print(hollidays)
-
-for hol in hollidays:
-    print(f"Atostogos {hol['Country']} {hol['City']} kaina {hol['Price']} gyvenant {hol['accomendation']}")
+    match choise:
+        case "1":
+            for hol in hollidays:
+                print(f"{hol["id"]}. Šalis {hol['Country']} {hol['City']} kaina {hol['Price']}eu"
+                      f" gyvenant {hol['accomendation']}")
+        case "2":
+            print("Atostogų pridėjimas:")
+            print("Įveskite šalį")
+            country = input()
+            print("Įveskite miestą")
+            city = input()
+            print("Įveskie kur gyvensite")
+            apt = input()
+            print("Kokia kaina bus")
+            price = input()
+            id_counter += 1
+            hollidays.append({
+                "id": id_counter,
+                "Country": country,
+                "City": city,
+                "Price": price,
+                "accomendation": apt
+            })
+        case "3":
+            print("Koreguoti atostogas")
+        case "4":
+            print("Šalinti atostogas")
+        case "5":
+            print("Išeiti iš programos")
+            break
